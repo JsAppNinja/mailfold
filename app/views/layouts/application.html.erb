@@ -24,6 +24,9 @@
         <div class="right menu">
           <% if user_signed_in? %>
             <div class="item">
+              <%= react_component("Search") %>
+            </div>
+            <div class="item">
               <%= current_user.email %>
               <span class="caret"></span>
             </div>
