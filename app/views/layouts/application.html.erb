@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AppGarage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="ui container">
+      <div class="ui stackable menu">
+        <a class="header item" href="/">
+          <img src="/logo.png">
+          <span style="margin-left: 8px;">Mailfold</span>
+        </a>
+        <%= link_to 'Home', root_path, class: 'item' %>
+        <a class="disabled item">Featured Products</a>
+        <a class="disabled item">Product List</a>
+        <div class="right menu">
+          <% if user_signed_in? %>
+            <div class="item">
+              <%= current_user.email %>
+              <span class="caret"></span>
+            </div>
+            <div class="item">
+              <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'ui primary button' %>
+            </div>
+          <% else %>
+            <div class="item">
+              <%= link_to 'Log In', new_user_session_path, class: 'ui secondary button' %>
+            </div>
+            <div class="item">
+              <%= link_to 'Sign Up', new_user_registration_path, class: 'ui primary button' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="ui container content">
+      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+  </body>
+</html>
