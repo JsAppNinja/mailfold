@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AppGarage</title>
+    <title>Mailfold</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -18,9 +18,9 @@
           <img src="/logo.png">
           <span style="margin-left: 8px;">Mailfold</span>
         </a>
-        <%= link_to 'Home', root_path, class: 'item' %>
-        <a class="disabled item">Featured Products</a>
-        <a class="disabled item">Product List</a>
+        <% if user_signed_in? %>
+          <a class="item">Product List</a>
+        <% end %>
         <div class="right menu">
           <% if user_signed_in? %>
             <div class="item">
