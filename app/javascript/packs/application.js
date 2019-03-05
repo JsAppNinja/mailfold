@@ -18,8 +18,10 @@
 
 import ReactOnRails from 'react-on-rails';
 import Search from '../components/Search';
+import ProductContent from '../components/ProductContent';
 
 ReactOnRails.register({
-  Search
+  Search,
+  ProductContent
 });
 
