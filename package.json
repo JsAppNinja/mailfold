@@ -8,7 +8,9 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-on-rails": "^11.0.9"
+    "react-listbox": "^1.2.5",
+    "react-on-rails": "^11.0.9",
+    "react-sidebar": "^3.0.2"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
