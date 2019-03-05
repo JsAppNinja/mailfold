@@ -19,7 +19,9 @@
           <span style="margin-left: 8px;">Mailfold</span>
         </a>
         <% if user_signed_in? %>
-          <a class="item">Product List</a>
+          <div class="item">
+            <%= link_to 'Product', controller: 'product' %>
+          </div>
         <% end %>
         <div class="right menu">
           <% if user_signed_in? %>
