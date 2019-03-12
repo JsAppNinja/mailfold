@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   get '/search', to: 'search#index'
 
-  resources :product
+  resources :products do
+    collection { post :import }    
+  end
+
   resources :apps, only: :show
 end
