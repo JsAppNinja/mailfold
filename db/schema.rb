@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 2019_03_14_100829) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "first"
+    t.string "middle"
+    t.string "last"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+  end
+
   create_table "products_tables", force: :cascade do |t|
     t.string "first"
     t.string "middle"

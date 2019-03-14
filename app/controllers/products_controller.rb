@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
     require 'csv'
+    attr_reader :filepath
     before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -10,16 +11,11 @@ class ProductsController < ApplicationController
         format.html
         format.csv { send_data @products }
       end
-      # @products.each do |row|
-      #   product_hash = row.to_hash
-      #   puts product_hash[nil]
-      # end
       # Product.import(@filepath)
     end
   
     def import
-      Product.import(params[:file])
-      redirect_to root_url, notice: "Products imported."
+      Product.import(Rails.root.join("lib", "csvs", "userInfo.csv"))
     end
   
     def new

@@ -13,7 +13,7 @@ class Product < ApplicationRecord
     products = CSV.parse(filecontent, :headers => true, :encoding => "ISO-8859-1")
     products.each do |row|
       product_hash = row.to_hash
-      Product.create(first: product_hash["Dejan"], middle: product_hash[nil], last: product_hash["Sabados"], address: product_hash["1 Oak St"], city: product_hash["Morrisville"], state: product_hash["NJ"], zip: product_hash["12590"])
+      Product.create(first: product_hash.values[0], middle: product_hash.values[1], last: product_hash.values[2], address: product_hash.values[3], city: product_hash.values[4], state: product_hash.values[5], zip: product_hash.values[6])
     end
   end
 end

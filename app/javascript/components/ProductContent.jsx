@@ -50,15 +50,15 @@ class ProductContent extends React.Component {
 									</tr>
 								</thead>
 								<tbody>
-								<tr>
-												<td>{products[productId][0]}</td>
-												<td>{products[productId][1]}</td>
-												<td>{products[productId][2]}</td>
-												<td>{products[productId][3]}</td>
-												<td>{products[productId][4]}</td>
-												<td>{products[productId][5]}</td>
-												<td>{products[productId][6]}</td>
-											</tr>
+									<tr>
+										<td>{products[productId][0]}</td>
+										<td>{products[productId][1]}</td>
+										<td>{products[productId][2]}</td>
+										<td>{products[productId][3]}</td>
+										<td>{products[productId][4]}</td>
+										<td>{products[productId][5]}</td>
+										<td>{products[productId][6]}</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
