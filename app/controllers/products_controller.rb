@@ -3,14 +3,18 @@ class ProductsController < ApplicationController
     before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     def index
-      csv_text = File.read(Rails.root.join("lib", "csvs", "userInfo.csv"))
-      csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
-      @products = csv
+      @filepath = Rails.root.join("lib", "csvs", "userInfo.csv")
+      filecontent = File.read(@filepath)
+      @products  = CSV.parse(filecontent, :headers => true, :encoding => "ISO-8859-1")
       respond_to do |format|
         format.html
         format.csv { send_data @products }
       end
-      Product.create(first: "David", middle: "M", last: "Crawford", address: "Test", city: "New York", state: "NY", zip: "19203")
+      # @products.each do |row|
+      #   product_hash = row.to_hash
+      #   puts product_hash[nil]
+      # end
+      # Product.import(@filepath)
     end
   
     def import

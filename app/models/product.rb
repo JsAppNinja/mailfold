@@ -9,10 +9,11 @@ class Product < ApplicationRecord
   end
 
   def self.import(filepath)
-    CSV.foreach(filepath, headers: true) do |row|
+    filecontent = File.read(filepath)
+    products = CSV.parse(filecontent, :headers => true, :encoding => "ISO-8859-1")
+    products.each do |row|
       product_hash = row.to_hash
-      product = find_or_create_by!(name: product_hash['name'], category: product_hash['category'])
-      product.update_attributes(product_hash)
+      Product.create(first: product_hash["Dejan"], middle: product_hash[nil], last: product_hash["Sabados"], address: product_hash["1 Oak St"], city: product_hash["Morrisville"], state: product_hash["NJ"], zip: product_hash["12590"])
     end
   end
 end

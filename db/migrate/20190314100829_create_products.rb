@@ -8,8 +8,6 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :state
       t.string :zip
-
-      t.timestamps
     end
   end
 end
